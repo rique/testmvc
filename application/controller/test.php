@@ -1,14 +1,19 @@
 <?php
 namespace application\controller;
+use libs\controller as controller;
 
-class test
+class test extends controller\Controller
 {
-	public function construct()
-	{}
+	public function __construct()
+	{
+		parent::__construct();
+		$this->setLayout();
+	}
 	
 	public function test( $arg )
 	{
-		var_dump( $arg );
+		$this->getView()->set('arg', $arg );
+		$this->render( 'test.php' );
 	}
 }
 ?>
